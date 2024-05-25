@@ -5,8 +5,8 @@ class ConnectionManager {
     function connect() {
         $servername = "localhost";
         $username = "root";
-        $password = "root";
-        $dbname = "week13extra";
+        $password = "";
+        $dbname = "dbs_hack";
         
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);     

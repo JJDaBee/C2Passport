@@ -4,14 +4,16 @@
     // WRITE YOUR CODES HERE
     $username = '';
     if (isset($_SESSION["login_page"])) {
-    $username = $_SESSION["login_page"];
-    unset($_SESSION["login_page"]);
-}
-
-
+        $username = $_SESSION["login_page"];
+        unset($_SESSION["login_page"]);
+}  
+    if (!empty($_POST['submit']) and !empty($_POST['username'])) {
+        $_SESSION['username'] = $_POST['username'];
+    }
 
 
 ?>
+
 
 <html>
 <body>
@@ -37,7 +39,7 @@
         </tr>
         </table>
         <br/>
-        <input type="submit" value="Login" />
+        <input type="submit" name='submit' value="Login" />
     </form>
     
     <?php printErrors(); ?>

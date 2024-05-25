@@ -6,7 +6,10 @@ if (isset($_SESSION['pwd_change_fail'])){
     $username=$_SESSION['pwd_change_fail'];
     unset($_SESSION['pwd_change_fail']);
 }
-    
+else {
+    $username = '';
+}
+
 ?>
 
 <html>

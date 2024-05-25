@@ -33,15 +33,13 @@ function printErrors() {
         unset($_SESSION['errors']);
     }
 }
-
 ?>
 
 <html>
     <body>
-        <a href="login.php"> Home </a> |
-        <a href="register.php"> Register </a> |
-        <a href="change_password.php"> Change Password </a> |
-        <a href="logout.php"> Logout </a>
+        <a href="login.php"> Home</a> |
+        <a href="register.php"> Register</a> |
+        <a href="change_password.php"> Change Password</a>
         <br/>
     </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 require_once "common.php";
+
     $errors=[];
     $user=false;
     $valid=false;
@@ -21,26 +22,25 @@ require_once "common.php";
     
     // Get the data from form processing and check data
     else{
-    
-    
-    // Check if password is valid
-    if ($password==''){
-        $errors[]="Original Password cannot be empty nor blank.";
-    }
-    else{
-        if ($user){
-            $valid=password_verify($password, $user->getPasswordHash());
+        $username = $_SESSION['username'];
+        // Check if password is valid
+        if ($password==''){
+            $errors[]="Original Password cannot be empty nor blank.";
         }
-    }
-    if ($newpw==''){
-        $errors[]="New Password cannot be empty nor blank.";
-    }
-    if ($confirmnew==''){
-        $errors[]="Confirmed New Password cannot be empty nor blank.";
-    }
-    if ($newpw!='' && $confirmnew!='' && $newpw!=$confirmnew){
-        $errors[]="The NEW passwords are different.";
-    }
+        else{
+            if ($user){
+                $valid=password_verify($password, $user->getPasswordHash());
+            }
+        }
+        if ($newpw==''){
+            $errors[]="New Password cannot be empty nor blank.";
+        }
+        if ($confirmnew==''){
+            $errors[]="Confirmed New Password cannot be empty nor blank.";
+        }
+        if ($newpw!='' && $confirmnew!='' && $newpw!=$confirmnew){
+            $errors[]="The NEW passwords are different.";
+        }
     }
 
     // Errors to show in change_password.php
