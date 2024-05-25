@@ -2,16 +2,18 @@
 
 class VolunteerDAO {
     public function getAll($username) {
+        $volAllSess = [];
         $connMgr = new ConnectionManager();
         $conn = $connMgr->connect();
         $sql = "select * from volunteer where username=:username";
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindParam(':username', $username);
-
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
         while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
-            $volunteer = new Volunteer($row["username"], $row["vname"], $row["vdate"]);
+            $volAllSess[] = new Volunteer($row["username"], $row["vname"], $row["vdate"]);
         }
+        return $volAllSess;
     }
 
     // Create new volunteer entry

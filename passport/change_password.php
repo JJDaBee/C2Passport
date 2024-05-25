@@ -1,5 +1,31 @@
-<?php
-require_once 'common.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .badge {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+    <?php
+require_once 'common2.php';
 
 // WRITE YOUR CODES HERE
 if (isset($_SESSION['pwd_change_fail'])){
@@ -13,7 +39,7 @@ else {
 ?>
 
 <html>
-<body>
+    <body>
     
     <h1>Change Password </h1>
     
@@ -22,12 +48,12 @@ else {
             table,th,td{
                 border: 1px solid black;
             }
-        </style>
+            </style>
     </head>
-
+    
     <form method="post" action="process_change_password.php">
         <table>
-        <tr>
+            <tr>
             <th>
                 Username
             </th>
@@ -59,8 +85,8 @@ else {
                 <input type="password" name="newconfirmPassword" value=""/>
             </td>
         </tr>
-        </table>
-        <br/>
+    </table>
+    <br/>
         <input type="submit" name="submit" />
     </form>
     

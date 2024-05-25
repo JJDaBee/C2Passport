@@ -1,31 +1,58 @@
-<html>
-    <body>
-        <a href="welcome.php">Home</a> |
-        <a href="profile.php">Profile</a> |
-        <a href="volunteer_signup.php">Sign Up for Volunteering</a> |
-        <a href="logout.php">Logout</a>
-        <br/>
-        <h3>This is the profile page</h3>
-    </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .badge {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
 <?php
 
-spl_autoload_register(function($class) {
-    $path = "./model/" . $class . ".php";
-    require_once $path; 
-    
-});
-session_start();
+require_once 'common2.php';
+echo "<h3>This is the profile page</h3>";
 
-
+if (isset($_SESSION['success'])) {
+    echo "Password has been updated.<br>";
+    unset($_SESSION['success']);
+}
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
     $volunteerDAO = new VolunteerDAO();
-    $volunteer = $volunteerDAO->getAll($username);
-
+    $volAllSess = $volunteerDAO->getAll($username);
+    if (!empty($volAllSess)) {
+        echo "Here are your registered volunteering events. Do take note of the dates!";
+        echo "<ol>";
+        foreach ($volAllSess as $sess) {
+            echo "<li>{$sess->getVname()}, {$sess->getVdate()}</li>";
+        }
+        echo "</ol>";
+    } else {
+        echo "You have not signed up for any volunteer sessions.";
+    }
+    echo "<hr><h3>Quick Links:</h3>";
+    echo "<a href='passport.php'>View your passport</a> | ";
+    echo "<a href='change_password.php'>Change password</a>";
 }
 else{
-    header("Location: login.php");
+    header("Location: home.php");
     return;
 }
 ?>

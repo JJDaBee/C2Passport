@@ -1,5 +1,5 @@
 <?php
-require_once "common.php";
+require_once "common2.php";
 
     $errors=[];
     $user=false;
@@ -57,8 +57,8 @@ require_once "common.php";
 
     if ( $status ) {
     // success; redirect
-        $_SESSION["login_page"] = $username;
-        header("Location: login.php");
+        $_SESSION["success"] = $username;
+        header("Location: profile.php");
         exit();
     }
     else {

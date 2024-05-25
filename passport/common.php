@@ -37,9 +37,13 @@ function printErrors() {
 
 <html>
     <body>
-        <a href="login.php"> Home</a> |
-        <a href="register.php"> Register</a> |
-        <a href="change_password.php"> Change Password</a>
+        <a href="home.php"> Home</a> |
+        <!-- <a href="referral.php"> Referral</a> | -->
+        <a href="leaderboard.php"> Leaderboard</a> |
+        <!-- <a href="change_password.php"> Change Password</a> | -->
+        <a href="login.php"> Login</a> |
+        <a href="register.php"> Register</a>
         <br/>
+        <hr>
     </body>
 </html>
