@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             border-radius: 5px;
         }
     </style>
-</head>
+</head> -->
 <?php
 
 require_once 'common2.php';
@@ -48,8 +48,7 @@ if (isset($_SESSION['username'])){
         echo "You have not signed up for any volunteer sessions.";
     }
     echo "<hr><h3>Quick Links:</h3>";
-    echo "<a href='passport.php'>View your passport</a> | ";
-    echo "<a href='change_password.php'>Change password</a>";
+    echo "<a href='passport.php'>View your passport</a> | <a href='change_password.php'>Change password</a>";
 }
 else{
     header("Location: home.php");

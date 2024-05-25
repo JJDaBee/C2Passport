@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,8 +23,7 @@
             border-radius: 5px;
         }
     </style>
-</head>
-<body>
+</head> -->
 <?php
 require_once 'common2.php';
 
@@ -37,11 +36,10 @@ require_once 'common2.php';
         $fname = $user->getFname();
         $lname = $user->getLname();
 
-        echo "<h1>Thank you ". $fname. " ". $lname. " for volunterring!</h1>";
+        echo "<h1>Thank you ". $fname. " ". $lname. " for volunteering!</h1>";
         unset($_SESSION['username']);
         unset($_SESSION['password']);
         
     }
 ?>
 Click <a href='home.php'>here</a> to return to Home Page
-</body>

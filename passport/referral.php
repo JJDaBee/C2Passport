@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             border-radius: 5px;
         }
     </style>
-</head>
+</head> -->
 <?php
     require_once "common2.php";
     echo "<h3>This is the Referral Page</h3>";
