@@ -20,3 +20,4 @@
     ?>
 </body>
 </html>
+<?php require_once 'contact.php' ?>
