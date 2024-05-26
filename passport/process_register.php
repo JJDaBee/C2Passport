@@ -1,6 +1,7 @@
 <?php
 require_once "common.php";
 
+
     $errors = [];
     $status=false;
 
@@ -36,8 +37,16 @@ require_once "common.php";
         else{
             $role=$_POST['role'];
             $hashed=password_hash($password, PASSWORD_DEFAULT);
-            
-            $user=new User($username,$hashed,$role);
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            if (!empty($_POST['phoneno'])) {
+                $phoneno = $_POST['phoneno'];
+            }
+            $address = $_POST['address'];
+            if (!empty($_POST['aoi'])) {
+                $aoi = $_POST['aoi'];            
+            }
+            $user=new User($username, $fname, $lname, $phoneno, $address, $aoi, $hashed, $role);
             $dao=new UserDAO();
             $status=$dao->create($user);
         }
